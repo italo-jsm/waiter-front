@@ -1,0 +1,19 @@
+<h1 mat-dialog-title>Abrir Mesa</h1>
+<div mat-dialog-content>
+    <form class="simple-form" [formGroup]="tableForm">
+        <mat-form-field class="full-width-form">
+            <mat-label>Número</mat-label>
+            <input matInput formControlName="number" name="number">
+        </mat-form-field>
+
+        <mat-form-field class="full-width-form">
+            <mat-label>Pessoas</mat-label>
+            <input matInput formControlName="people" name="people">
+        </mat-form-field>
+
+    </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="cancel()">Cancelar</button>
+  <button mat-raised-button color="primary" (click)="createConsumingUnit()">Criar</button>
+</div>

@@ -22,4 +22,8 @@ export class ConsumingUnitService {
   public getConsumingUnits(): Observable<ConsumingUnit[]> {
     return this.httpClient.get<ConsumingUnit[]>(this.apiUrl);
   }
+
+  public postConsumingUnit(consumingUnit: ConsumingUnit):Observable<any>{
+    return this.httpClient.post<ConsumingUnit>(this.apiUrl, consumingUnit, this.httpOptions)
+  }
 }

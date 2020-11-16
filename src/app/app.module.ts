@@ -13,12 +13,17 @@ import { ConsumingUnitListComponent } from './views/consuming-unit-list/consumin
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TableFormDialogComponent } from './views/home/table-form-dialog/table-form-dialog.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    ConsumingUnitListComponent
+    ConsumingUnitListComponent,
+    TableFormDialogComponent
   ],
   imports: [
     HttpClientModule,
@@ -29,7 +34,11 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatTabsModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
