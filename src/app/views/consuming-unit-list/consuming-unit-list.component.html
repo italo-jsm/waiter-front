@@ -8,7 +8,7 @@
                 fxFlex.lt-sm="100%">
                     <mat-card-title class="mat-card-title">Mesa {{unit.number}}</mat-card-title>
                     <mat-card-content>
-                      <button mat-button>Novo Pedido</button>
+                      <button mat-button (click)="details(unit.number)">Visualizar</button>
                     </mat-card-content>
                     <mat-card-actions style="padding: 7px;">
                       <button mat-button>Fechar</button>

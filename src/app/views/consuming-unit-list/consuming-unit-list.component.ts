@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { ConsumingUnitService } from 'src/app/shared/service/consuming-unit.service';
 import { ConsumingUnit } from 'src/app/shared/model/consuming-unit.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-consuming-unit-list',
@@ -10,7 +11,10 @@ import { ConsumingUnit } from 'src/app/shared/model/consuming-unit.model';
 })
 export class ConsumingUnitListComponent implements OnInit {
 
-  constructor(private consumingUnigService: ConsumingUnitService) { }
+  constructor(
+    private router: Router,
+    private consumingUnigService: ConsumingUnitService
+    ) { }
 
 
   consumingUnits: ConsumingUnit[];
@@ -23,5 +27,9 @@ export class ConsumingUnitListComponent implements OnInit {
     this.consumingUnigService.getConsumingUnits().subscribe(data => {
       this.consumingUnits = data;
     });
+  }
+
+  details(unitId: number){
+    this.router.navigate(["consuming-unit", unitId])
   }
 }

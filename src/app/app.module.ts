@@ -17,13 +17,17 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { TableFormDialogComponent } from './views/home/table-form-dialog/table-form-dialog.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ConsumingUnitDetailComponent } from './views/consuming-unit-list/consuming-unit-detail/consuming-unit-detail.component';
+import { CommandItemDialogComponent } from './views/consuming-unit-list/consuming-unit-detail/command-item-dialog/command-item-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     ConsumingUnitListComponent,
-    TableFormDialogComponent
+    TableFormDialogComponent,
+    ConsumingUnitDetailComponent,
+    CommandItemDialogComponent
   ],
   imports: [
     HttpClientModule,
