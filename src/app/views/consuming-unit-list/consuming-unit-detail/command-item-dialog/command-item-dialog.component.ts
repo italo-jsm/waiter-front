@@ -21,28 +21,28 @@ export class CommandItemDialogComponent implements OnInit {
     ) { }
   public itemForm: FormGroup;
 
-  products: Product[]
+  products: Product[] = []
 
   myControl = new FormControl();
-  options: string[] = ['One', 'Two', 'Three'];
-  filteredOptions: Observable<string[]>;
+  filteredProducts: Observable<Product[]>;
 
   ngOnInit(): void {
+    this.getAllProducts();
     this.itemForm = this.fb.group({
       product: ['', [Validators.required]],
       quantity: ['', [Validators.required]]
     });
-    this.filteredOptions = this.myControl.valueChanges.pipe(
+    this.filteredProducts = this.myControl.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value))
     );
   }
 
 
-  private _filter(value: string): string[] {
+  private _filter(value: string): Product[] {
     const filterValue = value.toLowerCase();
 
-    return this.options.filter(option => option.toLowerCase().indexOf(filterValue) === 0);
+    return this.products.filter(product => product.description.toLowerCase().indexOf(filterValue) === 0);
   }
 
   createItem(){

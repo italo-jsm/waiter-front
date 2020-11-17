@@ -2,8 +2,17 @@
 <div mat-dialog-content>
     <form class="simple-form" [formGroup]="itemForm">
         <mat-form-field class="full-width-form">
-            <mat-label>Produto</mat-label>
-            <input matInput formControlName="product" name="product">
+            <input type="text"
+            placeholder="Produto"
+            aria-label="Produto"
+            matInput
+            [formControl]="myControl"
+            [matAutocomplete]="auto">
+            <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+                <mat-option *ngFor="let product of filteredProducts | async" [value]="product.description">
+                  {{product.description}}
+                </mat-option>
+              </mat-autocomplete>
         </mat-form-field>
 
         <mat-form-field class="full-width-form">
