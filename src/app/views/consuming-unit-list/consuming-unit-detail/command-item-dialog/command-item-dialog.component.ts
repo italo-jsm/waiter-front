@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatDialogRef } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import {map, startWith} from 'rxjs/operators';
+import { CommandItem } from 'src/app/shared/model/command-item.model';
 import { Product } from 'src/app/shared/model/product.model';
 
 import { ProductService } from 'src/app/shared/service/product.service';
@@ -20,16 +21,15 @@ export class CommandItemDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<CommandItemDialogComponent>
     ) { }
   public itemForm: FormGroup;
-
+  selectedProduct: Product = new Product()
+  commandItem: CommandItem = new CommandItem()
   products: Product[] = []
-
   myControl = new FormControl();
   filteredProducts: Observable<Product[]>;
 
   ngOnInit(): void {
     this.getAllProducts();
     this.itemForm = this.fb.group({
-      product: ['', [Validators.required]],
       quantity: ['', [Validators.required]]
     });
     this.filteredProducts = this.myControl.valueChanges.pipe(
@@ -38,7 +38,6 @@ export class CommandItemDialogComponent implements OnInit {
     );
   }
 
-
   private _filter(value: string): Product[] {
     const filterValue = value.toLowerCase();
 
@@ -46,19 +45,23 @@ export class CommandItemDialogComponent implements OnInit {
   }
 
   createItem(){
-    console.log(this.itemForm.value)
-    // this.dialogRef.close();
-    // this.itemForm.reset();
-    // window.location.reload();
+    this.commandItem.product = this.selectedProduct;
+    this.commandItem.quantity = this.itemForm.value.quantity
+    this.dialogRef.close();
+    this.itemForm.reset();
+    window.location.reload();
   }
 
   cancel(){
     this.dialogRef.close();
-    this.itemForm.reset();
   }
 
   getAllProducts(){
     this.productService.getProducts().subscribe(data => this.products = data)
+  }
+
+  onSelected(product: Product){
+    this.selectedProduct = product;
   }
 
 }

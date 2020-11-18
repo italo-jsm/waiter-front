@@ -9,7 +9,7 @@
             [formControl]="myControl"
             [matAutocomplete]="auto">
             <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-                <mat-option *ngFor="let product of filteredProducts | async" [value]="product.description">
+                <mat-option *ngFor="let product of filteredProducts | async" [value]="product.description" (onSelectionChange)="onSelected(product)">
                   {{product.description}}
                 </mat-option>
               </mat-autocomplete>
