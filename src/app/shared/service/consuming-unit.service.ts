@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { HttpHeaders, HttpClientModule, HttpClient } from '@angular/common/http'
+import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { ConsumingUnit } from '../model/consuming-unit.model';
 

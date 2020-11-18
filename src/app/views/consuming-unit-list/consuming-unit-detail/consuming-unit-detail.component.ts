@@ -23,7 +23,10 @@ export class ConsumingUnitDetailComponent implements OnInit {
 
   addItem(){
     const dialogRef = this.dialog.open(CommandItemDialogComponent, {
-      width: '250px'
+      width: '250px',
+      data:{
+        id: this.unitId
+      }
     });
     
     dialogRef.afterClosed().subscribe(result => {
