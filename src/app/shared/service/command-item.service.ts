@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs';
 import { CommandItem } from '../model/command-item.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CommandItemService {
-
-  apiUrl = 'http://localhost:8080/command-items';
+  
+  apiUrl = environment.API_BASE.concat('/command-items');
 
   httpOptions =  {
     headers: new HttpHeaders({

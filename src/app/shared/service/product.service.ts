@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../model/product.model';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable({
@@ -9,7 +10,7 @@ import { Product } from '../model/product.model';
 })
 export class ProductService {
 
-  apiUrl = 'http://localhost:8080/products';
+  apiUrl = environment.API_BASE.concat('/products');
 
   httpOptions = {
     headers: new HttpHeaders({

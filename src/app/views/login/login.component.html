@@ -1,0 +1,14 @@
+ 
+<form [formGroup]="form" autocomplete="off" (ngSubmit)="onSubmit(form.value)">
+    <h1 mat-dialog-title>Acesso ao sistema</h1>
+    <mat-form-field class="full-width-form">
+        <mat-label>Nome de Usuário</mat-label>
+        <input matInput formControlName="username" name="number" required>
+    </mat-form-field>
+
+    <mat-form-field class="full-width-form">
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password" name="password" required>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit">Entrar</button>
+  </form>

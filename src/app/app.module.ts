@@ -20,6 +20,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConsumingUnitDetailComponent } from './views/consuming-unit-list/consuming-unit-detail/consuming-unit-detail.component';
 import { CommandItemDialogComponent } from './views/consuming-unit-list/consuming-unit-detail/command-item-dialog/command-item-dialog.component';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { LoginComponent } from './views/login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     ConsumingUnitListComponent,
     TableFormDialogComponent,
     ConsumingUnitDetailComponent,
-    CommandItemDialogComponent
+    CommandItemDialogComponent,
+    LoginComponent
   ],
   imports: [
     HttpClientModule,
