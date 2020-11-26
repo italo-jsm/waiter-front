@@ -22,6 +22,9 @@ import { CommandItemDialogComponent } from './views/consuming-unit-list/consumin
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { LoginComponent } from './views/login/login.component';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http'
+import { AuthInterceptor } from 'src/app/shared/interceptor/auth.interceptor'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,7 +51,9 @@ import { LoginComponent } from './views/login/login.component';
     ReactiveFormsModule,
     MatAutocompleteModule
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
